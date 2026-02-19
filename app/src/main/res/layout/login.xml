@@ -15,12 +15,27 @@
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="165dp" />
 
+
+    <TextView
+        android:id="@+id/tvLoginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="184dp"
+        android:text="LOGIN"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etInput"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/username"
-        android:hint="user name"
+        android:hint="username"
         android:inputType="text"
         android:padding="16dp"
         android:textColor="#FFFFFF"
