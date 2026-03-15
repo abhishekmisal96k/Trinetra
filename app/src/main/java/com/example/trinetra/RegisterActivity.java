@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,46 +19,47 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class login extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     EditText etEmail, etPassword;
-    Button btnLogin;
-    TextView tvRegister, tvForget;
+    Button btnRegister;
 
-    String URL_LOGIN = "http://10.0.2.2/android_api/login.php";
+    String URL_REGISTER = "http://10.0.2.2/android_api/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_register);
 
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        tvRegister = findViewById(R.id.tvRegister);
-        tvForget = findViewById(R.id.tvforget);
+        btnRegister = findViewById(R.id.btnregister);
 
-        btnLogin.setOnClickListener(v -> loginUser());
-
-        tvRegister.setOnClickListener(v ->
-                startActivity(new Intent(login.this, RegisterActivity.class)));
-
-        tvForget.setOnClickListener(v ->
-                startActivity(new Intent(login.this, ForgetPasswordActivity.class)));
+        btnRegister.setOnClickListener(v -> registerUser());
     }
 
-    private void loginUser() {
+    private void registerUser() {
 
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
+        // Check empty fields
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        // Validate email
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             etEmail.setError("Enter valid email");
+            etEmail.requestFocus();
+            return;
+        }
+
+        // Validate password length (4 - 15)
+        if (password.length() < 4 || password.length() > 15) {
+            etPassword.setError("Password must be between 4 and 15 characters");
+            etPassword.requestFocus();
             return;
         }
 
@@ -69,35 +69,25 @@ public class login extends AppCompatActivity {
 
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.POST,
-                URL_LOGIN,
+                URL_REGISTER,
                 new JSONObject(params),
 
                 response -> {
-                    try {
+                    String status = response.optString("status");
+                    String message = response.optString("message");
 
-                        String status = response.getString("status");
-                        String message = response.getString("message");
+                    Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
 
-                        if (status.equals("success")) {
+                    if ("success".equals(status)) {
 
-                            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-
-                            Intent intent = new Intent(login.this, MainActivity.class);
-                            startActivity(intent);
-                            finish(); // prevent going back to login
-
-                        } else {
-
-                            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-
-                        }
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        // Go to login screen
+                        Intent intent = new Intent(RegisterActivity.this, login.class);
+                        startActivity(intent);
+                        finish();
                     }
                 },
 
-                error -> Toast.makeText(this,
+                error -> Toast.makeText(RegisterActivity.this,
                         "Server Error: " + error.getMessage(),
                         Toast.LENGTH_SHORT).show()
         );
