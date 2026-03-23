@@ -24,8 +24,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     EditText etEmail, etOtp, etNewPassword;
     Button btnSendOtp, btnReset;
 
-    String URL_SEND_OTP = "http://10.0.2.2/android_api/send_otp.php";
-    String URL_RESET = "http://10.0.2.2/android_api/reset_password.php";
+    String URL_SEND_OTP = "http://10.186.128.197/android_api/send_otp.php";
+    String URL_RESET = "http://10.186.128.197/android_api/reset_password.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText etEmail, etPassword;
     Button btnRegister;
 
-    String URL_REGISTER = "http://10.0.2.2/android_api/register.php";
+    String URL_REGISTER = "http://10.186.128.197/android_api/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

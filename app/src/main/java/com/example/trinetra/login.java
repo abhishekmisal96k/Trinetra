@@ -26,7 +26,7 @@ public class login extends AppCompatActivity {
     Button btnLogin;
     TextView tvRegister, tvForget;
 
-    String URL_LOGIN = "http://10.0.2.2/android_api/login.php";
+    String URL_LOGIN = "http://10.186.128.197/android_api/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

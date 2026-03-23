@@ -7,6 +7,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F6FA">
+    <include layout="@layout/header"/>
+
+    <!-- your content here -->
+
 
     <TextView
         android:id="@+id/welcomeText"
@@ -20,5 +24,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <include
+        layout="@layout/footer"
+        android:layout_alignParentBottom="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
