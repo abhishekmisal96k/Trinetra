@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.view.View;
 import android.widget.Button;
@@ -236,4 +237,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
-}
+    }

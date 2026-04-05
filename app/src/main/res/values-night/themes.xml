@@ -1,7 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Trinetra" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+    <style name="Base.Theme.Trinetra" parent="Theme.Material3.Dark.NoActionBar">
+
+        <!-- Primary colors -->
+        <item name="colorPrimary">#00B0FF</item>
+        <item name="colorOnPrimary">#000000</item>
+
+        <!-- Secondary (green/orange hint) -->
+        <item name="colorSecondary">#76FF03</item>
+        <item name="colorOnSecondary">#000000</item>
+
+        <!-- Background -->
+        <item name="android:colorBackground">#000000</item>
+        <item name="colorSurface">#121212</item>
+
+        <!-- System bars -->
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:navigationBarColor">#000000</item>
+
+        <!-- Text -->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textColorSecondary">#B0B0B0</item>
+
     </style>
+
+    <style name="Theme.Trinetra" parent="Base.Theme.Trinetra" />
+
 </resources>

@@ -4,14 +4,13 @@ plugins {
 
 android {
     namespace 'com.example.trinetra'
-    compileSdk {
-        version = release(36)
-    }
+
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.trinetra"
         minSdk 29
-        targetSdk 36
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -24,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -31,15 +31,20 @@ android {
 }
 
 dependencies {
+
+    // Core Android
     implementation libs.appcompat
-    implementation libs.material
     implementation libs.activity
     implementation libs.constraintlayout
+
+    // Material UI (ONLY ONE, not both)
+    implementation libs.material
+
+    // Networking (Volley)
+    implementation 'com.android.volley:volley:1.2.1'
+
+    // Testing
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
-    implementation 'com.android.volley:volley:1.2.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-
-
 }

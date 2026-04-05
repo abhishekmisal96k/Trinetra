@@ -8,9 +8,11 @@
     android:layout_height="match_parent"
     android:background="#F5F6FA">
 
+    <!-- Header -->
     <include
         android:id="@+id/headerLayout"
-        layout="@layout/header"/>
+        layout="@layout/header"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- Welcome Text -->
     <TextView
@@ -21,25 +23,23 @@
         android:textSize="26sp"
         android:textStyle="bold"
         android:textColor="#222222"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/headerLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Choose File Button -->
+    <!-- Choose File -->
     <Button
         android:id="@+id/btnChoose"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Choose File"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="30dp"
+        android:layout_margin="24dp"
         app:layout_constraintTop_toBottomOf="@id/welcomeText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Selected File Name -->
+    <!-- File Name -->
     <TextView
         android:id="@+id/txtFileName"
         android:layout_width="0dp"
@@ -47,52 +47,68 @@
         android:text="No file selected"
         android:textSize="16sp"
         android:textColor="#444444"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@id/btnChoose"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Upload Button -->
+    <!-- Upload -->
     <Button
         android:id="@+id/btnUpload"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Upload and Detect"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/txtFileName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Progress Bar -->
+    <!-- Progress -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/btnUpload"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Result Box -->
+    <!-- Result -->
     <TextView
         android:id="@+id/txtResult"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="Result will appear here"
         android:textSize="18sp"
         android:textColor="#222222"
         android:background="#FFFFFF"
         android:padding="16dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="30dp"
         android:elevation="4dp"
+        android:layout_margin="24dp"
+
         app:layout_constraintTop_toBottomOf="@id/progressBar"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="#000000"
+
+
+
+        app:itemIconSize="28dp"
+        app:labelVisibilityMode="labeled"
+
+        app:menu="@menu/menu"
+
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

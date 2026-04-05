@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,33 +14,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trinetra"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".profile"
+            android:exported="false" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="false" />
-
-        <!-- Login Activity (Launcher) -->
+            android:exported="false" /> <!-- Login Activity (Launcher) -->
         <activity
             android:name=".login"
             android:exported="true">
-
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-
-        <!-- Forget Password -->
+        </activity> <!-- Forget Password -->
         <activity
             android:name=".ForgetPasswordActivity"
-            android:exported="false"/>
-
-        <!-- Main screen after login -->
+            android:exported="false" /> <!-- Main screen after login -->
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
     </application>
 
 </manifest>
